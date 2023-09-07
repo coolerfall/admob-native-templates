@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="8dip">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_small"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dip"
+            app:cardCornerRadius="8dip"
+            app:cardElevation="4dip"
+            app:cardPreventCornerOverlap="true"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.coolerfall.admob.templates.NativeTemplateView
+                android:id="@+id/admob_samll_tpl_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:gnt_template_layout="@layout/gnt_small_template_view" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_medium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dip"
+            android:layout_marginTop="8dip"
+            app:cardCornerRadius="8dip"
+            app:cardElevation="4dip"
+            app:cardPreventCornerOverlap="true"
+            app:layout_constraintTop_toBottomOf="@id/card_small">
+
+            <com.coolerfall.admob.templates.NativeTemplateView
+                android:id="@+id/admob_medium_tpl_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:gnt_template_layout="@layout/gnt_medium_template_view" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_large"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dip"
+            android:layout_marginTop="8dip"
+            app:cardCornerRadius="8dip"
+            app:cardElevation="4dip"
+            app:cardPreventCornerOverlap="true"
+            app:layout_constraintTop_toBottomOf="@id/card_medium">
+
+            <com.coolerfall.admob.templates.NativeTemplateView
+                android:id="@+id/admob_large_tpl_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:gnt_template_layout="@layout/gnt_large_template_view" />
+
+        </androidx.cardview.widget.CardView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dip"
+            android:layout_margin="8dip"
+            app:layout_constraintTop_toBottomOf="@id/card_large" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

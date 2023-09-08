@@ -4,8 +4,10 @@
     <dimen name="gnt_icon_size">60dip</dimen>
     <dimen name="gnt_default_margin">8dip</dimen>
     <dimen name="gnt_small_margin">4dip</dimen>
+    <dimen name="gnt_little_margin">2dip</dimen>
     <dimen name="gnt_text_size_small">12sp</dimen>
     <dimen name="gnt_text_size_large">15sp</dimen>
+    <dimen name="gnt_top_margin">12dip</dimen>
     <dimen name="gnt_ad_indicator_top_margin">0dip</dimen>
     <dimen name="gnt_ad_indicator_text_size">10sp</dimen>
     <dimen name="gnt_no_margin">0dip</dimen>

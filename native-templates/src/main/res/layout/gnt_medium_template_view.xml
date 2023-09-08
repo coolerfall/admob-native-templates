@@ -10,7 +10,9 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/gnt_default_margin">
+            android:paddingHorizontal="@dimen/gnt_default_margin"
+            android:paddingTop="@dimen/gnt_top_margin"
+            android:paddingBottom="@dimen/gnt_default_margin">
 
             <ImageView
                 android:id="@id/gnt_iv_icon"
@@ -129,8 +131,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/gnt_no_size"
                 android:maxLines="2"
-                android:paddingStart="@dimen/gnt_default_margin"
-                android:paddingEnd="@dimen/gnt_no_size"
+                android:paddingHorizontal="@dimen/gnt_default_margin"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/gnt_iv_icon" />
@@ -139,7 +140,8 @@
                 android:id="@id/gnt_btn_call_to_action"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/gnt_small_margin"
+                android:layout_marginHorizontal="@dimen/gnt_default_margin"
+                android:layout_marginTop="@dimen/gnt_little_margin"
                 android:gravity="center"
                 android:lines="1"
                 android:minHeight="@dimen/gnt_btn_min_height"

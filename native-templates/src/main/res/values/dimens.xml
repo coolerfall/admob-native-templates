@@ -2,6 +2,7 @@
 <resources>
 
     <dimen name="gnt_icon_size">60dip</dimen>
+    <dimen name="gnt_icon_small_size">46dip</dimen>
     <dimen name="gnt_default_margin">8dip</dimen>
     <dimen name="gnt_small_margin">4dip</dimen>
     <dimen name="gnt_little_margin">2dip</dimen>

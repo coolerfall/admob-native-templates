@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Build.VERSION_CODES
 import android.text.TextUtils
 import android.util.AttributeSet
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.Button
@@ -99,7 +100,8 @@ class NativeTemplateView : FrameLayout {
 		primaryView?.text = headline
 		callToActionView?.text = callToAction
 
-		/* Set the secondary view to be the star rating if available. */if (starRating != null && starRating > 0) {
+		/* Set the secondary view to be the star rating if available. */
+		if (starRating != null && starRating > 0) {
 			secondaryView?.visibility = GONE
 			ratingBar?.visibility = VISIBLE
 			ratingBar?.rating = starRating.toFloat()

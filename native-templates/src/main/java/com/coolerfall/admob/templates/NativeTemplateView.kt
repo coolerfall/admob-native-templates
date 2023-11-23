@@ -4,9 +4,7 @@ import android.content.Context
 import android.os.Build.VERSION_CODES
 import android.text.TextUtils
 import android.util.AttributeSet
-import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.ImageView
@@ -23,7 +21,7 @@ import com.google.android.gms.ads.nativead.NativeAdView
 class NativeTemplateView : FrameLayout {
 
 	private var nativeAd: NativeAd? = null
-	private var nativeAdView: NativeAdView? = null
+	private lateinit var nativeAdView: NativeAdView
 	private var primaryView: TextView? = null
 	private var secondaryView: TextView? = null
 	private var ratingBar: RatingBar? = null
@@ -50,15 +48,15 @@ class NativeTemplateView : FrameLayout {
 
 	public override fun onFinishInflate() {
 		super.onFinishInflate()
-		nativeAdView = findViewById<View>(R.id.native_ad_view) as? NativeAdView
-		primaryView = findViewById<View>(R.id.gnt_tv_headline) as? TextView
-		secondaryView = findViewById<View>(R.id.gnt_tv_secondary) as? TextView
-		tertiaryView = findViewById<View>(R.id.gnt_tv_body) as? TextView
-		ratingBar = findViewById<View>(R.id.gnt_rating_bar) as? RatingBar
+		nativeAdView = findViewById(R.id.native_ad_view)
+		primaryView = findViewById(R.id.gnt_tv_headline)
+		secondaryView = findViewById(R.id.gnt_tv_secondary)
+		tertiaryView = findViewById(R.id.gnt_tv_body)
+		ratingBar = findViewById(R.id.gnt_rating_bar)
 		ratingBar?.isEnabled = false
-		callToActionView = findViewById<View>(R.id.gnt_btn_call_to_action) as? Button
-		iconView = findViewById<View>(R.id.gnt_iv_icon) as? ImageView
-		mediaView = findViewById<View>(R.id.gnt_media_view) as? MediaView
+		callToActionView = findViewById(R.id.gnt_btn_call_to_action)
+		iconView = findViewById(R.id.gnt_iv_icon)
+		mediaView = findViewById(R.id.gnt_media_view)
 	}
 
 	private fun initView(context: Context, attributeSet: AttributeSet?) {
@@ -84,15 +82,14 @@ class NativeTemplateView : FrameLayout {
 		val starRating = nativeAd.starRating
 		val icon = nativeAd.icon
 		val secondaryText: String?
-		nativeAdView?.callToActionView = callToActionView
-		nativeAdView?.headlineView = primaryView
-		nativeAdView?.mediaView = mediaView
-		secondaryView?.visibility = VISIBLE
+		nativeAdView.callToActionView = callToActionView
+		nativeAdView.headlineView = primaryView
+		nativeAdView.mediaView = mediaView
 		if (adHasOnlyStore(nativeAd)) {
-			nativeAdView?.storeView = secondaryView
+			nativeAdView.storeView = secondaryView
 			secondaryText = store
 		} else if (!TextUtils.isEmpty(advertiser)) {
-			nativeAdView?.advertiserView = secondaryView
+			nativeAdView.advertiserView = secondaryView
 			secondaryText = advertiser
 		} else {
 			secondaryText = ""
@@ -105,7 +102,7 @@ class NativeTemplateView : FrameLayout {
 			secondaryView?.visibility = GONE
 			ratingBar?.visibility = VISIBLE
 			ratingBar?.rating = starRating.toFloat()
-			nativeAdView?.starRatingView = ratingBar
+			nativeAdView.starRatingView = ratingBar
 		} else {
 			secondaryView?.text = secondaryText
 			secondaryView?.visibility = VISIBLE
@@ -118,10 +115,10 @@ class NativeTemplateView : FrameLayout {
 			iconView?.visibility = GONE
 		}
 		if (tertiaryView != null) {
+			nativeAdView.bodyView = tertiaryView
 			tertiaryView?.text = body
-			nativeAdView?.bodyView = tertiaryView
 		}
-		nativeAdView?.setNativeAd(nativeAd)
+		nativeAdView.setNativeAd(nativeAd)
 	}
 
 	/**

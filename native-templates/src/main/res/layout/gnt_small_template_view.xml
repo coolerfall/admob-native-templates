@@ -23,59 +23,36 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <LinearLayout
                 android:layout_width="@dimen/gnt_no_size"
-                android:layout_height="0dip"
+                android:layout_height="@dimen/gnt_icon_small_size"
                 android:layout_marginStart="@dimen/gnt_default_margin"
+                android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="@id/gnt_iv_icon"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_weight="1.0"
                 app:layout_constraintStart_toEndOf="@id/gnt_iv_icon"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="@id/gnt_iv_icon">
 
-                <LinearLayout
-                    android:id="@+id/headline"
+                <TextView
+                    android:id="@id/gnt_tv_headline"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@android:color/transparent"
-                    android:gravity="start"
-                    android:orientation="horizontal"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                    android:layout_margin="@dimen/gnt_no_margin"
+                    android:lines="1"
+                    android:textSize="@dimen/gnt_text_size_large"
+                    android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@id/gnt_tv_headline"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_margin="@dimen/gnt_no_margin"
-                        android:lines="1"
-                        android:textSize="@dimen/gnt_text_size_large"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-                <LinearLayout
+                <TextView
+                    android:id="@id/gnt_tv_body"
                     android:layout_width="match_parent"
                     android:layout_height="0dip"
-                    android:orientation="horizontal"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/headline"
-                    app:layout_constraintVertical_weight="1">
+                    android:layout_weight="1.0"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:lines="1" />
 
-                    <TextView
-                        android:id="@id/gnt_tv_body"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:ellipsize="end"
-                        android:lines="1" />
-
-                </LinearLayout>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
 
             <Button
                 android:id="@id/gnt_btn_call_to_action"

@@ -2,6 +2,7 @@
 
     <declare-styleable name="GntTemplateView">
         <attr name="gnt_template_layout" format="reference" />
+        <attr name="hide_action_button" format="boolean"/>
     </declare-styleable>
 
 </resources>

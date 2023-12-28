@@ -5,6 +5,7 @@ import android.os.Build.VERSION_CODES
 import android.text.TextUtils
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.view.View
 import android.widget.Button
 import android.widget.FrameLayout
 import android.widget.ImageView
@@ -29,6 +30,7 @@ class NativeTemplateView : FrameLayout {
 	private var iconView: ImageView? = null
 	private var mediaView: MediaView? = null
 	private var callToActionView: Button? = null
+	private var hideActionButton: Boolean = false
 
 	constructor(context: Context) : this(context, null)
 	constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)
@@ -57,17 +59,19 @@ class NativeTemplateView : FrameLayout {
 		callToActionView = findViewById(R.id.gnt_btn_call_to_action)
 		iconView = findViewById(R.id.gnt_iv_icon)
 		mediaView = findViewById(R.id.gnt_media_view)
+
+		if (hideActionButton) {
+			callToActionView?.visibility = View.GONE
+		}
 	}
 
 	private fun initView(context: Context, attributeSet: AttributeSet?) {
-		val attributes = context.theme.obtainStyledAttributes(attributeSet, R.styleable.GntTemplateView, 0, 0)
-		val templateType: Int = try {
-			attributes.getResourceId(
-				R.styleable.GntTemplateView_gnt_template_layout, R.layout.gnt_large_template_view
-			)
-		} finally {
-			attributes.recycle()
-		}
+		val attrs = context.theme.obtainStyledAttributes(attributeSet, R.styleable.GntTemplateView, 0, 0)
+		val templateType: Int = attrs.getResourceId(
+			R.styleable.GntTemplateView_gnt_template_layout, R.layout.gnt_large_template_view
+		)
+		hideActionButton = attrs.getBoolean(R.styleable.GntTemplateView_hide_action_button, false)
+		attrs.recycle()
 		val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
 		inflater.inflate(templateType, this)
 	}

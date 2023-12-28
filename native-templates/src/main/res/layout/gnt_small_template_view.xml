@@ -27,6 +27,7 @@
                 android:layout_width="@dimen/gnt_no_size"
                 android:layout_height="@dimen/gnt_icon_small_size"
                 android:layout_marginStart="@dimen/gnt_default_margin"
+                android:layout_marginBottom="@dimen/gnt_little_margin"
                 android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="@id/gnt_iv_icon"
                 app:layout_constraintEnd_toEndOf="parent"

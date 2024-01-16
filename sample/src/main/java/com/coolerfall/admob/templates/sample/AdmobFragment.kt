@@ -51,6 +51,9 @@ class AdmobFragment : Fragment() {
 
 	override fun onDestroyView() {
 		super.onDestroyView()
+		binding.admobLargeTplView.destroyNativeAd()
+		binding.admobMediumTplView.destroyNativeAd()
+		binding.admobSamllTplView.destroyNativeAd()
 		_binding = null
 	}
 }

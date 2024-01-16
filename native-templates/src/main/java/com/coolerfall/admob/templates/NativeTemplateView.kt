@@ -126,12 +126,12 @@ class NativeTemplateView : FrameLayout {
 	}
 
 	/**
-	 * To prevent memory leaks, make sure to destroy your ad when you don't need it anymore. This
-	 * method does not destroy the template view.
+	 * To prevent memory leaks, make sure to destroy your ad when you don't need it anymore.
 	 * https://developers.google.com/admob/android/native-unified#destroy_ad
 	 */
 	fun destroyNativeAd() {
-		nativeAd?.destroy()
+		this.nativeAd = null
+		nativeAdView.destroy()
 	}
 
 	private fun adHasOnlyStore(nativeAd: NativeAd): Boolean {

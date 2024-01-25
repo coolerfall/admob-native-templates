@@ -23,7 +23,6 @@
                 android:id="@+id/admob_samll_tpl_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:hide_action_button="true"
                 app:gnt_template_layout="@layout/gnt_small_template_view" />
 
         </androidx.cardview.widget.CardView>
@@ -43,8 +42,6 @@
                 android:id="@+id/admob_medium_tpl_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:hide_action_button="true"
-
                 app:gnt_template_layout="@layout/gnt_medium_template_view" />
 
         </androidx.cardview.widget.CardView>

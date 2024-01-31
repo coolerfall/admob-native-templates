@@ -131,6 +131,7 @@ class NativeTemplateView : FrameLayout {
 	 */
 	fun destroyNativeAd() {
 		this.nativeAd = null
+		nativeAdView.removeAllViews()
 		nativeAdView.destroy()
 	}
 
